@@ -1,7 +1,7 @@
 @def title = "About me"
 @def tags = ["syntax", "code"]
 
-I am a Senior Software Engineer at [Blaize](https://www.blaize.com/), where I work 
+I am a Staff Software Engineer at [Blaize](https://www.blaize.com/), where I work 
 on optimizing deep learning models for [Blaize Graph Streaming Processor (GSP)](https://www.blaize.com/technology/)
 architecture. Blaize GSP is a novel graph-native computing architecture designed 
 from the ground up for efficient artificial intelligence applications at the edge.
