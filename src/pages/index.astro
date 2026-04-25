@@ -3,34 +3,45 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Arash Bakhtiari';
 const description =
-  'Staff Software Engineer working at the intersection of high performance computing and machine learning.';
+  'Member of Technical Staff at Microsoft AI working on high-performance systems for large-scale AI.';
 
 const links = [
   { label: 'Email', href: 'mailto:arash@bakhtiari.org' },
   { label: 'GitHub', href: 'https://github.com/arashb' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arashbakhtiari' },
   { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=uVhQQx4AAAAJ&hl=en' },
-  { label: 'CV', href: '/assets/cv.pdf' },
 ];
 
 const roles = [
   {
+    company: 'Microsoft AI',
+    companyUrl: 'https://microsoft.ai/',
+    summaryHtml:
+      'Contributing to inference and training software stacks, including Triton kernel optimizations, FP8 KV cache integration, and checkpointing and fault-tolerance infrastructure for large-scale training.',
+  },
+  {
+    company: 'Microsoft DeepSpeed',
+    companyUrl: 'https://www.deepspeed.ai/',
+    summaryHtml:
+      'Optimized <a href="https://openai.com/index/dall-e-3/">OpenAI DALL.E</a> inference latency and added DeepSpeed Inference support for large language models including OPT, Falcon, and Phi-2.',
+  },
+  {
     company: 'Blaize',
     companyUrl: 'https://www.blaize.com/',
-    summary:
-      'Optimizing deep learning models for the Blaize Graph Streaming Processor architecture, with a focus on efficient AI applications at the edge.',
+    summaryHtml:
+      'Optimized computer vision deep learning models such as ResNet, OpenPose, and Mask R-CNN for the Blaize Graph Streaming Processor architecture.',
   },
   {
     company: 'Plumerai',
     companyUrl: 'https://plumerai.com/',
-    summary:
-      'Led architecture and development of Larq Compute Engine, a highly optimized inference engine for binarized neural networks on mobile and embedded devices.',
+    summaryHtml:
+      'Led technical design and development of Larq Compute Engine, an optimized inference engine for binarized neural networks on mobile and embedded devices.',
   },
   {
     company: 'Intel',
     companyUrl: 'https://www.intel.com/',
-    summary:
-      'Worked on new x86 architecture extensions including Intel Deep Learning Boost instructions and Control-Flow Enforcement Technology.',
+    summaryHtml:
+      'Benchmarked Intel Deep Learning Boost instructions and implemented Control-Flow Enforcement Technology support in the GNU Debugger.',
   },
 ];
 ---
@@ -41,7 +52,6 @@ const roles = [
       <a class="brand" href="/" aria-label="Arash Bakhtiari home">AB</a>
       <div class="nav-links">
         <a href="https://scholar.google.com/citations?user=uVhQQx4AAAAJ&hl=en">Publications</a>
-        <a href="/assets/cv.pdf">CV</a>
       </div>
     </nav>
 
@@ -49,9 +59,9 @@ const roles = [
       <aside class="profile-panel" aria-label="Profile">
         <img src="/assets/headshot.png" alt="Arash Bakhtiari" width="1130" height="1392" />
         <div>
-          <p class="eyebrow">Cambridge, UK</p>
+          <p class="eyebrow">Redmond, WA</p>
           <h1 id="intro-title">Arash Bakhtiari</h1>
-          <p class="role">Staff Software Engineer</p>
+          <p class="role">Member of Technical Staff, Microsoft AI</p>
         </div>
         <div class="contact-grid" aria-label="Contact links">
           {links.map((link) => <a href={link.href}>{link.label}</a>)}
@@ -59,19 +69,21 @@ const roles = [
       </aside>
 
       <article class="intro-copy">
-        <p class="section-kicker">HPC + machine learning systems</p>
+        <p class="section-kicker">AI systems + high performance computing</p>
         <h2>Making machine learning models run fast on real hardware.</h2>
         <p>
-          I am a Staff Software Engineer at <a href="https://www.blaize.com/">Blaize</a>, where I work
-          on optimizing deep learning models for the
-          <a href="https://www.blaize.com/technology/">Blaize Graph Streaming Processor (GSP)</a>
-          architecture. Blaize GSP is a graph-native computing architecture designed from the ground
-          up for efficient artificial intelligence applications at the edge.
+          I am a Member of Technical Staff at
+          <a href="https://microsoft.ai/">Microsoft AI</a>, where I work across
+          inference and training software stacks for large-scale AI systems. My recent work includes
+          Triton kernel optimizations, FP8 KV cache integration, and checkpointing and
+          fault-tolerance infrastructure for distributed training.
         </p>
         <p>
-          My work sits at the intersection of high performance computing and machine learning. I am
-          particularly interested in parallel, scalable ML algorithms and systems that accelerate
-          these models across hardware architectures.
+          Before joining Microsoft AI, I worked on DeepSpeed inference optimization for
+          <a href="https://openai.com/index/dall-e-3/">OpenAI DALL.E</a> and large language
+          models, edge AI acceleration at Blaize, and Larq Compute Engine at Plumerai. My work sits
+          at the intersection of high performance computing, machine learning systems, and
+          architecture-aware optimization.
         </p>
       </article>
     </section>
@@ -86,7 +98,7 @@ const roles = [
                 <h3>
                   <a href={role.companyUrl}>{role.company}</a>
                 </h3>
-                <p>{role.summary}</p>
+                <p set:html={role.summaryHtml} />
               </section>
             ))
           }
