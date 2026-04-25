@@ -134,8 +134,9 @@ a:hover {
 
 .profile-panel img {
   width: 100%;
-  aspect-ratio: 1;
-  object-fit: cover;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
   border-radius: 6px;
   background: var(--surface-muted);
 }
