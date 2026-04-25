@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found | Arash Bakhtiari"
+  description="The requested page could not be found."
+>
+  <main class="page-shell">
+    <nav class="topbar" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Arash Bakhtiari home">AB</a>
+      <div class="nav-links">
+        <a href="https://scholar.google.com/citations?user=uVhQQx4AAAAJ&hl=en">Publications</a>
+        <a href="/assets/cv.pdf">CV</a>
+      </div>
+    </nav>
+
+    <section class="not-found" aria-labelledby="page-title">
+      <p class="section-kicker">404</p>
+      <h1 id="page-title">Page not found</h1>
+      <p>The page you are looking for does not exist or has moved.</p>
+      <a href="/">Go home</a>
+    </section>
+  </main>
+</BaseLayout>

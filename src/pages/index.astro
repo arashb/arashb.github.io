@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Arash Bakhtiari';
+const description =
+  'Staff Software Engineer working at the intersection of high performance computing and machine learning.';
+
+const links = [
+  { label: 'Email', href: 'mailto:arash@bakhtiari.org' },
+  { label: 'GitHub', href: 'https://github.com/arashb' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arashbakhtiari' },
+  { label: 'Google Scholar', href: 'https://scholar.google.com/citations?user=uVhQQx4AAAAJ&hl=en' },
+  { label: 'CV', href: '/assets/cv.pdf' },
+];
+
+const roles = [
+  {
+    company: 'Blaize',
+    companyUrl: 'https://www.blaize.com/',
+    summary:
+      'Optimizing deep learning models for the Blaize Graph Streaming Processor architecture, with a focus on efficient AI applications at the edge.',
+  },
+  {
+    company: 'Plumerai',
+    companyUrl: 'https://plumerai.com/',
+    summary:
+      'Led architecture and development of Larq Compute Engine, a highly optimized inference engine for binarized neural networks on mobile and embedded devices.',
+  },
+  {
+    company: 'Intel',
+    companyUrl: 'https://www.intel.com/',
+    summary:
+      'Worked on new x86 architecture extensions including Intel Deep Learning Boost instructions and Control-Flow Enforcement Technology.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <main class="page-shell">
+    <nav class="topbar" aria-label="Primary">
+      <a class="brand" href="/" aria-label="Arash Bakhtiari home">AB</a>
+      <div class="nav-links">
+        <a href="https://scholar.google.com/citations?user=uVhQQx4AAAAJ&hl=en">Publications</a>
+        <a href="/assets/cv.pdf">CV</a>
+      </div>
+    </nav>
+
+    <section class="hero" aria-labelledby="intro-title">
+      <aside class="profile-panel" aria-label="Profile">
+        <img src="/assets/profile.png" alt="Arash Bakhtiari" width="720" height="720" />
+        <div>
+          <p class="eyebrow">Cambridge, UK</p>
+          <h1 id="intro-title">Arash Bakhtiari</h1>
+          <p class="role">Staff Software Engineer</p>
+        </div>
+        <div class="contact-grid" aria-label="Contact links">
+          {links.map((link) => <a href={link.href}>{link.label}</a>)}
+        </div>
+      </aside>
+
+      <article class="intro-copy">
+        <p class="section-kicker">HPC + machine learning systems</p>
+        <h2>Making machine learning models run fast on real hardware.</h2>
+        <p>
+          I am a Staff Software Engineer at <a href="https://www.blaize.com/">Blaize</a>, where I work
+          on optimizing deep learning models for the
+          <a href="https://www.blaize.com/technology/">Blaize Graph Streaming Processor (GSP)</a>
+          architecture. Blaize GSP is a graph-native computing architecture designed from the ground
+          up for efficient artificial intelligence applications at the edge.
+        </p>
+        <p>
+          My work sits at the intersection of high performance computing and machine learning. I am
+          particularly interested in parallel, scalable ML algorithms and systems that accelerate
+          these models across hardware architectures.
+        </p>
+      </article>
+    </section>
+
+    <section class="content-grid" aria-label="Professional background and education">
+      <article class="section-block">
+        <p class="section-kicker">Experience</p>
+        <div class="timeline">
+          {
+            roles.map((role) => (
+              <section>
+                <h3>
+                  <a href={role.companyUrl}>{role.company}</a>
+                </h3>
+                <p>{role.summary}</p>
+              </section>
+            ))
+          }
+        </div>
+      </article>
+
+      <article class="section-block">
+        <p class="section-kicker">Research</p>
+        <h2>Parallel algorithms, architecture-aware ML, and efficient inference.</h2>
+        <p>
+          I received my PhD in HPC and parallel algorithms from the
+          <a href="https://www.ias.tum.de/">Institute for Advanced Study</a> at Technical University of
+          Munich, under the supervision of
+          <a href="https://www.oden.utexas.edu/people/1056">George Biros</a> and
+          <a href="https://www.professoren.tum.de/en/bungartz-hans-joachim">
+            Hans-Joachim Bungartz</a
+          >.
+        </p>
+        <p>
+          A full list of peer-reviewed and pre-print manuscripts is available on my
+          <a href="https://scholar.google.com/citations?user=uVhQQx4AAAAJ&hl=en">
+            Google Scholar profile</a
+          >.
+        </p>
+      </article>
+    </section>
+  </main>
+</BaseLayout>
